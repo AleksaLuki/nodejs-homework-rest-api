@@ -1,7 +1,8 @@
 const express = require('express')
 
-const { validateBody, autentificate } = require('../../middlewares');
-const { schemas } = require('../../models/users');
+const { validateBody } = require('../../middlewares');
+const { autentificate } = require('../../middlewares/autentificate');
+const { schemas } = require('../../models/user');
 const ctrl = require('../../controllers/auth')
 
 const router = express.Router()
@@ -18,7 +19,7 @@ router.post("/logout", autentificate, ctrl.logout);
 router.patch(
     "/id/subscription",
     autentificate,
-    validateBody(schemas.updateSub),
+    validateBody(schemas.updatedSub),
     ctrl.updateSub
 );
 

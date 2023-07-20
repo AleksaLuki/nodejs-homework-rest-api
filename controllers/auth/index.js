@@ -13,5 +13,4 @@ module.exports = {
     getCurrent: ctrlWrapper(getCurrent),
     logout: ctrlWrapper(logout),
     updateSub: ctrlWrapper(updateSub),
-
 }
