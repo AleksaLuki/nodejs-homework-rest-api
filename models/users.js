@@ -4,6 +4,7 @@ const Joi = require('joi');
 
 
 const emailRegexp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+const subList = ['starter', 'pro', 'business'];
 
 
 const userSchema = new Schema(
@@ -21,7 +22,7 @@ const userSchema = new Schema(
       },
       subscription: {
         type: String,
-        enum: subscriptionList,
+        enum: subList,
         default: "starter",
       },
       token: {
@@ -45,9 +46,16 @@ const userSchema = new Schema(
     email: Joi.string().pattern(emailRegexp).required(),
   });
 
+  const updateSub = Joi.object({
+    subscription: Joi.string()
+      .valid(...subList)
+      .required(),
+  });
+
   const shemas = {
     registerSchema,
     loginSchema,
+    updateSub,
   }
 
 

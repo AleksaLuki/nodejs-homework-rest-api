@@ -1,7 +1,6 @@
 const { User } = require("../../models/user");
 const { HttpError } = require("../../helpers");
 
-
 const updateSub = async (req, res) => {
   const { id } = req.params;
   if (id !== req.user.id) {
