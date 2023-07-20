@@ -10,6 +10,9 @@ router.post('/register', validateBody(schemas.registerSchema), ctrl.register);
 
 router.post("/login", validateBody(schemas.loginSchema), ctrl.login);
 
+router.get("/current", autentificate, ctrl.getCurrent);
+
+router.post("/logout", autentificate, ctrl.logout);
 
 
 router.patch(
