@@ -1,9 +1,8 @@
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 const { User } = require('../../models/user');
 const { HttpError } = require('../../helpers');
-
-const jwt = require('jsonwebtoken');
 
 const { SECRET_KEY } = process.env;
 
@@ -36,3 +35,43 @@ const login = async (req, res) => {
 };
 
 module.exports = login;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const jwt = require('jsonwebtoken');
+// require("dotenv").config();
+// const { SECRET_KEY } = process.env;
+
+// const payload = {
+//     id: "64b534e80224c48c5a21b4e4"
+//   }
+//   const token = jwt.sign(payload, SECRET_KEY, { expiresIn: "1d" });
+// //  console.log(token);
+// const decodeToken = jwt.decode(token);
+// // console.log(decodeToken);
+// try {
+//     const {id} = jwt.verify(token, SECRET_KEY);
+//     console.log(id);
+//     const invalidToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YjUzNGU4MDIyNGM0OGM1YTIxYjRlNCIsImlhdCI6MTY4OTk0ODU5MiwiZXhwIjoxNjkwMDM0OTkyfQ.rxMpEGK2UacTaXdamP6ojqrAd-xODVe8EbKigkmuAOw "
+//     const result = jwt.verify(invalidToken, SECRET_KEY)
+// }
+// catch(error) {
+//     console.log(error.message);
+// }
+
+
+
+
