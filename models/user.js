@@ -8,6 +8,12 @@ const subList = ["starter", "pro", "business"];
 
 const userSchema = new Schema(
   {
+
+    name: {
+            type: String,
+            required: true,
+          },
+
     password: {
       type: String,
       required: [true, "Set password for user"],
@@ -24,13 +30,19 @@ const userSchema = new Schema(
       default: "starter",
     },
     token: String,
+    avatarURL: {
+      type: String,
+      required: true,
+    },
   },
+    
   { versionKey: false, timestamps: true }
 );
 
 userSchema.post("save", handleMongoosError);
 
 const registerSchema = Joi.object({
+  name: Joi.string().required(),
   password: Joi.string().required(),
   email: Joi.string().pattern(emailRegexp).required(),
   subscription: Joi.string().valid(...subList),
