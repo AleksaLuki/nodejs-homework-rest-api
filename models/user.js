@@ -1,18 +1,16 @@
-const { Schema, model } = require('mongoose');
-const { handleMongoosError } = require('../helpers');
-const Joi = require('joi');
-
+const { Schema, model } = require("mongoose");
+const { handleMongoosError } = require("../helpers");
+const Joi = require("joi");
 
 const emailRegexp = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
 const subList = ["starter", "pro", "business"];
 
 const userSchema = new Schema(
   {
-
     name: {
-            type: String,
-            required: true,
-          },
+      type: String,
+      required: true,
+    },
 
     password: {
       type: String,
@@ -35,7 +33,7 @@ const userSchema = new Schema(
       required: true,
     },
   },
-    
+
   { versionKey: false, timestamps: true }
 );
 
@@ -72,14 +70,9 @@ module.exports = {
   schemas,
 };
 
-
-
-
-
 // const { Schema, model } = require('mongoose');
 // const { handleMongoosError } = require('../helpers');
 // const Joi = require('joi');
-
 
 // const emailRegexp = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
 // const subList = ["starter", "pro", "business"];
@@ -90,7 +83,7 @@ module.exports = {
 //       type: String,
 //       required: true,
 //     },
-   
+
 //     email: {
 //       type: String,
 //       required: [true, "Email is required"],
@@ -103,7 +96,7 @@ module.exports = {
 //       required: true,
 //       minlength: 6,
 //     },
-  
+
 //   },
 //   { versionKey: false, timestamps: true }
 // );
@@ -119,9 +112,8 @@ module.exports = {
 // const loginSchema = Joi.object({
 //   email: Joi.string().pattern(emailRegexp).required(),
 //   password: Joi.string().min(6).required(),
-  
-// });
 
+// });
 
 // const schemas = {
 //   registerSchema,
